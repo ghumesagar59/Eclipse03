@@ -1,0 +1,37 @@
+package Way2step;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.*;
+
+public class Way2step {
+	
+		WebDriver driver;
+		
+		
+	 	@Given("user go to the website")
+	 	public void user_go() throws InterruptedException {
+	 		driver = new ChromeDriver();
+	        driver.get("https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box");
+	        Thread.sleep(1000);
+	        driver.manage().window().maximize();
+	        Thread.sleep(1000);
+	 	}
+	    @When("click on formate date")
+	    public void click() {
+	    	
+	    }
+	    @And("user entered date of birth")
+	    public void user_entered() {
+	    	
+	    }
+	    @And("user change the format options")
+	    public void user_change() {
+	    	
+	    }
+	    @Then("user close the website")
+	    public void user_close() {
+	    	
+	    }
+}

@@ -1,0 +1,44 @@
+package StepDefinitions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.*;
+
+public class RegistrationSteps {
+
+	WebDriver driver;
+	
+	@Given("User is on the Way2Automation registration page")
+	public void User_is_on() {
+		
+		driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.way2automation.com/way2auto_jquery/registration.php#load_box");
+		
+	}
+	
+	
+    @When("User enters valid registration details")
+    public void User_enters() throws InterruptedException {
+    	
+    	driver.findElement(By.xpath("//fieldset[@class='fieldset']//input[@name='name']")).sendKeys("Sagar");
+    	//Thread.sleep(2000);
+    	driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys("Ghume");
+    	//Thread.sleep(2000);
+    	driver.findElement(By.xpath("//label[normalize-space()='Single']")).click();
+    	//Thread.sleep(1000);
+    	driver.findElement(By.xpath("//label[normalize-space()='Single']")).click();
+    	//Thread.sleep(1000);
+    	driver.findElement(By.xpath("//label[normalize-space()='Reading']")).click();
+    	//Thread.sleep(1000);
+    	
+    }
+    
+    
+    @Then("Registration form should be submitted successfully")
+    public void Registration() {
+    	
+    }
+}

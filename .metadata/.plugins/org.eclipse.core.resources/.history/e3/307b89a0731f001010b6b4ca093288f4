@@ -1,0 +1,103 @@
+package StepDefinitions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.*;
+
+public class RegistrationSteps {
+
+	WebDriver driver;
+	
+	@Given("User is on the Way2Automation registration page")
+	public void User_is_on() {
+		
+		driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.way2automation.com/way2auto_jquery/registration.php#load_box");
+		
+	}
+	
+	
+    @When("User enters valid registration details")
+    public void User_enters() throws InterruptedException {
+    	
+    	WebElement firstname = driver.findElement(By.xpath("//fieldset[@class='fieldset']//input[@name='name']"));
+    	firstname.sendKeys("Sagar");
+    	Thread.sleep(1000);
+    	
+    	
+    
+    	WebElement lastname = driver.findElement(By.xpath("(//input[@type='text'])[2]"));
+    	lastname.sendKeys("Ghume");
+    	Thread.sleep(1000);
+    	
+    	
+    	driver.findElement(By.xpath("//label[normalize-space()='Married']")).click();
+    	Thread.sleep(1000);
+    	
+    	
+    	driver.findElement(By.xpath("//label[normalize-space()='Dance']")).click();
+    	Thread.sleep(1000);
+    	driver.findElement(By.xpath("//label[normalize-space()='Reading']")).click();
+    	Thread.sleep(1000);
+    	driver.findElement(By.xpath("//label[normalize-space()='Cricket']")).click();
+    	Thread.sleep(1000);
+    	
+    	WebElement country = driver.findElement(By.xpath("(//select)[1]"));
+    	country.sendKeys("India");
+    	Thread.sleep(1000);
+    	
+    	WebElement month = driver.findElement(By.xpath("(//select)[2]"));
+    	month.sendKeys("1");
+    	Thread.sleep(1000);
+    	WebElement day = driver.findElement(By.xpath("(//select)[3]"));
+    	day.sendKeys("1");
+    	Thread.sleep(1000);
+    	WebElement year = driver.findElement(By.xpath("(//select)[4]"));
+    	year.sendKeys("2014");
+    	Thread.sleep(1000);
+    	
+    	WebElement phone = driver.findElement(By.xpath("(//input[@name='phone'])[1]"));
+    	phone.sendKeys("9284340700");
+    	Thread.sleep(1000);
+    	
+    	WebElement username = driver.findElement(By.xpath("(//input[@name='username'])[1]"));
+    	username.sendKeys("Ghumesagar59");
+    	Thread.sleep(1000);
+    	
+    	WebElement email = driver.findElement(By.xpath("(//input[@name='email'])[1]"));
+    	email.sendKeys("ghumesagar59@gmail.com");
+    	Thread.sleep(1000);
+    	
+    	
+    	WebElement foto = driver.findElement(By.xpath("//input[@type='file']"));
+    	foto.sendKeys("C:\\Users\\Admin\\Downloads\\Foto.JPEG");
+    	Thread.sleep(1000);
+    	
+    	WebElement About = driver.findElement(By.xpath("(//textarea)[1]"));
+    	About.sendKeys("> I am a passionate and dedicated individual with strong problem-solving skills and a keen interest in learning new technologies. I enjoy working in collaborative environments and am always ready to take on new challenges.");
+    	Thread.sleep(1000);
+    	
+    	WebElement Password = driver.findElement(By.xpath("(//input[@name='password'])[1]"));
+    	Password.sendKeys("Pass@123");
+    	Thread.sleep(1000);
+    	
+    	WebElement Confirm_Password = driver.findElement(By.xpath("(//input[@name='c_password'])[1]"));
+    	Confirm_Password.sendKeys("Pass@123");
+    	Thread.sleep(1000);
+    	
+    	WebElement SUBMIT = driver.findElement(By.xpath("(//input[@value='submit'])[1]"));
+    	SUBMIT.click();
+    	Thread.sleep(1000);
+    }
+    
+    
+    	@Then("Registration form should be submitted successfully")
+    	public void Registration() {
+    	System.out.println("Registration Form submitted Successfully");
+    	driver.close();
+    }
+}

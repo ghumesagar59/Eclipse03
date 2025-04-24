@@ -1,0 +1,27 @@
+package Way2step;
+
+import io.cucumber.java.en.*;
+
+public class Way2step {
+
+	 	@Given("user go to the website")
+	 	public void user_go() {
+	 		
+	 	}
+	    @When("click on formate date")
+	    public void click() {
+	    	
+	    }
+	    @And("user entered date of birth")
+	    public void user_entered() {
+	    	
+	    }
+	    @And("user change the format options")
+	    public void user_change() {
+	    	
+	    }
+	    @Then("user close the website")
+	    public void user_close() {
+	    	
+	    }
+}

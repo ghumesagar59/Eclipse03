@@ -1,0 +1,6 @@
+Feature: Way2Automation Registration
+
+  Scenario: I fills the registration form successfully
+    Given I Am on the Way2Automation registration page
+    When I enters valid registration details
+    Then Registration form should be submitted successfully

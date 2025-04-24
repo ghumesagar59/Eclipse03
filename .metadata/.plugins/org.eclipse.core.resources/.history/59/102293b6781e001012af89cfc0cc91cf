@@ -1,0 +1,46 @@
+package stepDefinitions;
+import io.cucumber.java.en.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+public class ProductSelectionSteps {
+
+	WebDriver driver;
+
+    @Given("User is on the homepage")
+    public void user_is_on_homepage() {
+        //System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.automationexercise.com/");
+        driver.manage().window().maximize();
+    }
+
+    @When("User navigates to Men category and then Jeans section")
+    public void user_navigates_to_jeans_section() {
+        // Click on 'Men' > 'Jeans'
+        WebElement menCategory = driver.findElement(By.xpath("//a[contains(text(),'Men')]"));
+        menCategory.click();
+
+        WebElement jeansSubcategory = driver.findElement(By.xpath("//a[contains(text(),'Jeans')]"));
+        jeansSubcategory.click();
+    }
+
+    @When("User selects 3 products")
+    public void user_selects_three_products() {
+        // Wait for products to load
+        try { Thread.sleep(2000); } catch (InterruptedException e) {}
+
+        List<WebElement> products = driver.findElements(By.cssSelector(".features_items .productinfo"));
+        for (int i = 0; i < 3 && i < products.size(); i++) {
+            WebElement product = products.get(i);
+            String name = product.findElement(By.tagName("p")).getText();
+            String price = product.findElement(By.tagName("h2")).getText();
+            System.out.println("Product " + (i + 1) + ": " + name + " - " + price);
+        }
+    }
+
+    @Then("User prints the name and price of selected products")
+    public void print_product_details() {
+        driver.quit();
+    }
+}

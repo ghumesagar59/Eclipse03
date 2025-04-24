@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="replacehistory">
+			<item value="Thread.sleep(1000);"/>
+			<item value="//Thread.sleep(1000);"/>
+			<item value="1000"/>
+			<item value="Thread"/>
+			<item value="//Thread"/>
+			<item value="500"/>
+			<item value="2000"/>
+		</list>
+		<list key="findhistory">
+			<item value="//Thread.sleep(1000);"/>
+			<item value="Thread.sleep(1000);"/>
+			<item value="2000"/>
+			<item value="//Thread"/>
+			<item value="Thread"/>
+			<item value="//"/>
+			<item value="1000"/>
+			<item value="3000"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,47 @@
+package Way2step;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.*;
+
+public class Way2step {
+	
+		WebDriver driver;
+		
+		
+	 	@Given("user go to the website")
+	 	public void user_go() throws InterruptedException {
+	 		driver = new ChromeDriver();
+	        driver.get("https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box");
+	        Thread.sleep(2000);
+	        driver.manage().window().maximize();
+	        Thread.sleep(2000);
+	 	}
+	    @When("click on formate date")
+	    public void click() throws InterruptedException {
+	    	WebElement FormatDate = driver.findElement(By.xpath("//a[normalize-space()='Format date']"));
+	    	FormatDate.click();
+	    	Thread.sleep(2000);
+	    }
+	    @And("user entered date of birth")
+	    public void user_entered() throws InterruptedException {
+	    	driver.findElement(By.className("hasDatepicker")).click();
+	    	driver.findElement(By.className("hasDatepicker")).sendKeys("04/02/1997");
+	    	driver.findElement(By.className("hasDatepicker")).click();
+	    	Thread.sleep(2000);
+	    }
+	    @And("user change the format options")
+	    public void user_change() throws InterruptedException {
+	    	WebElement Format_Option = driver.findElement(By.xpath("(//select[@id='format'])[1]"));
+	    	Format_Option.sendKeys("Full");
+	    	System.out.println(Format_Option);
+	    	Thread.sleep(2000);
+	    }
+	    @Then("user close the website")
+	    public void user_close() {
+	    	driver.close();
+	    }
+}
